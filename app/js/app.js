@@ -38,14 +38,14 @@ class QuizApp {
   }
   end() {
     const player_name = this.player.name;
-    const collect_count = this.player.getCollectAnswerCount();
+    const correct_count = this.player.getCollectAnswerCount();
     const current_number = this.current_number;
     this.player = null;
     this.questioner = null;
     this.current_number = 0;
     return {
       "player_name": player_name,
-      "collect_count": collect_count,
+      "correct_count": correct_count,
       "current_number": current_number
     };
   }
