@@ -6,8 +6,8 @@ class Quiz {
   }
   propose() {
     return {
-      "statement": this.current_quiz.getQuestionStatement(),
-      "choices": this.current_quiz.getChoices()
+      "statement": this.getQuestionStatement(),
+      "choices": this.getChoices()
     };
   }
 }
