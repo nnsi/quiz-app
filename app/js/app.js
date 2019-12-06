@@ -1,9 +1,3 @@
-/*
-― ジャンルを選ぶことができる
-― 選択肢を表示して選ばせる
-― 正答をその場で表示する
-― 10問終わったら正答数を表示する
-*/
 import Player from "./player";
 import Questioner from "./questioner";
 import QuizCollection from './quiz_collection';

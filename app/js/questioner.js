@@ -17,9 +17,13 @@ class Questioner {
     return this.current_quiz.propose();
   }
   judgeQuiz(answer = -1) {
+    const result = this.current_quiz.getAnswer() === answer;
+    const collect_answer = this.current_quiz.getChoices()[this.current_quiz.getAnswer()];
     this.isAnswered = true;
-    return this.current_quiz.getAnswer() === answer;
+    return {
+      "result": result,
+      "collect_answer": collect_answer
+    };
   }
 }
-
 export default Questioner;
