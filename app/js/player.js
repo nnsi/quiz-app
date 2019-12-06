@@ -9,7 +9,7 @@ class Player {
     this.correct_answer_count += (judge.result) ? 1 : 0;
     return judge;
   }
-  getCollectAnswerCount() {
+  getCorrectAnswerCount() {
     return this.correct_answer_count;
   }
 }

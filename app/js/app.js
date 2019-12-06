@@ -38,7 +38,7 @@ class QuizApp {
   }
   end() {
     const player_name = this.player.name;
-    const correct_count = this.player.getCollectAnswerCount();
+    const correct_count = this.player.getCorrectAnswerCount();
     const current_number = this.current_number;
     this.player = null;
     this.questioner = null;
