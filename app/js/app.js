@@ -19,7 +19,7 @@ class QuizApp {
   isGameEnd() {
     return this.question_max === this.current_number;
   }
-  initialize(genre = "", times = 10) {
+  initialize(genre = "", times = 3) {
     if (!genre) throw Error("ジャンルが選択されていません");
     this.player = new Player();
     this.questioner = new Questioner(this.quiz_collection, genre);
@@ -37,14 +37,12 @@ class QuizApp {
     return this.player.answer(this.questioner, input_value);
   }
   end() {
-    const player_name = this.player.name;
     const correct_count = this.player.getCorrectAnswerCount();
     const current_number = this.current_number;
     this.player = null;
     this.questioner = null;
     this.current_number = 0;
     return {
-      "player_name": player_name,
       "correct_count": correct_count,
       "current_number": current_number
     };
