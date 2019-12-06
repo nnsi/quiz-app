@@ -1,8 +1,15 @@
-require('./app.tag');
+'use strict';
 
-import QuizApp from './js/app.js'
+import './tag/app.tag';
+import QuizApp from './js/app';
 
-riot.mount('app', {
-  'QuizApp': QuizApp,
-  'obs': riot.observable()
-});
+async function main() {
+  const res = await fetch("./quiz.json");
+  const QUIZ_DATA = await res.json();
+  riot.mount('app', {
+    'QuizApp': new QuizApp(QUIZ_DATA),
+    'obs': riot.observable()
+  });
+}
+
+main();

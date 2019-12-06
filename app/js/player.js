@@ -1,9 +1,10 @@
+import Questioner from './questioner'
+
 class Player {
-  constructor(name = "名無しさん") {
-    this.name = name;
+  constructor() {
     this.correct_answer_count = 0;
   }
-  answer(questioner = Questioner, answer) {
+  answer(questioner = Questioner, answer = -1) {
     const judge = questioner.judgeQuiz(answer);
     this.correct_answer_count += (judge) ? 1 : 0;
     return judge;
@@ -12,4 +13,5 @@ class Player {
     return this.correct_answer_count;
   }
 }
-export default Player = Player;
+
+export default Player;

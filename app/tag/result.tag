@@ -8,6 +8,10 @@ this.result=opts.opt.result
 this.count=app.getCurrentNumber()
 this.isGameEnd=app.isGameEnd()
 
+this.on("before-mount",()=>{
+  obs.trigger("title",`第${this.count}問`)
+})
+
 this.onNextButtonClick=()=>{
   if(app.isGameEnd()) obs.trigger("page","quizend")
   else obs.trigger("page","quizquestion")
