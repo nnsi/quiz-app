@@ -1,15 +1,17 @@
+import Questioner from './questioner'
+
 class Player {
-  constructor(name = "名無しさん") {
-    this.name = name;
+  constructor() {
     this.correct_answer_count = 0;
   }
-  answer(questioner = Questioner, answer) {
+  answer(questioner = Questioner, answer = -1) {
     const judge = questioner.judgeQuiz(answer);
-    this.correct_answer_count += (judge) ? 1 : 0;
+    this.correct_answer_count += (judge.result) ? 1 : 0;
     return judge;
   }
-  getCollectAnswerCount() {
+  getCorrectAnswerCount() {
     return this.correct_answer_count;
   }
 }
-export default Player = Player;
+
+export default Player;

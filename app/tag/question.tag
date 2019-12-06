@@ -1,5 +1,4 @@
 <QuizQuestion>
-<p>第{count}問</p>
 <p>{statement}</p>
 <virtual each={choice,i in choices}>
 <input type="radio" name="choice" value={i} onchange={onAnswerChange}>{choice}<br>
@@ -9,14 +8,19 @@
 const app=opts.app
 const obs=opts.obs
 this.quiz=app.getQuestion()
-this.statement=this.quiz.getQuestionStatement()
-this.choices=this.quiz.getChoices()
+this.statement=this.quiz.statement
+this.choices=this.quiz.choices
 this.count=app.getCurrentNumber()
 this.answer=null
+
+this.on("before-mount",()=>{
+  obs.trigger("title",`第${this.count}問`)
+})
 
 this.onAnswerChange=(e)=>{
   this.answer=e.target.value
 }
+
 this.onAnswerClick=()=>{
   if(!this.answer) return alert("回答を選択してください")
   obs.trigger("page","quizresult",{

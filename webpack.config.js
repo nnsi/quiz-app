@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './app/index',
+  entry: ['@babel/polyfill', './app/index'],
   output: {
     path: __dirname + '/docs',
     filename: 'bundle.js'
