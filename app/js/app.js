@@ -19,7 +19,7 @@ class QuizApp {
   isGameEnd() {
     return this.question_max === this.current_number;
   }
-  initialize(genre = "", times = 3) {
+  initialize(genre = "", times = 10) {
     if (!genre) throw Error("ジャンルが選択されていません");
     this.player = new Player();
     this.questioner = new Questioner(this.quiz_collection, genre);
